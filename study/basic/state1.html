@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // React18로 바뀌며 동작하지 않는 부분을 수정
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        let counter = 0;
+        function countUp() {
+            counter = counter + 1;
+            Render();
+        }
+        function Render() {
+            return (root.render(<Container />));
+        }
+
+        const Container = () => {
+            return (
+                <div>
+                    <h3>Total clicks: {counter}</h3>
+                    <button onClick={countUp}>Click me</button>
+                </div>
+            );
+        };
+
+        Render();
+    </script>
+</html>
